@@ -38,12 +38,14 @@ def login():
             flash("Invalid username or password.", "danger")
     return render_template("login.html", form=form)
 
+
+
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
     flash("You have been logged out.", "info")
-    return redirect(url_for("login"))
+    return redirect(url_for("home")) 
 
 @app.route('/upload', methods=['GET', 'POST'])
 @login_required
